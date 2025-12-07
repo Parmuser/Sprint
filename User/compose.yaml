@@ -1,11 +1,15 @@
 services:
-  postgres:
-    image: postgres:latest
-    container_name: user-postgres-1
+  db:
+    image: postgres:18
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_USER: myuser
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
-      TZ: Asia/Kolkata   # OS timezone only, safe
+      POSTGRES_DB: mydb
+      TZ: Asia/Kolkata
+    volumes:
+      - pgdata:/var/lib/postgresql  # <-- updated
     ports:
       - "5432:5432"
+
+volumes:
+  pgdata:
