@@ -5,7 +5,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
       POSTGRES_DB: mydb
-      TZ: Asia/Kolkata
+      TZ: UTC
     volumes:
       - pgdata:/var/lib/postgresql  # <-- updated
     ports:
