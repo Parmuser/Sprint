@@ -1,5 +1,7 @@
 package com.example.user;
 
+import java.util.TimeZone;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -12,10 +14,8 @@ import java.util.TimeZone;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		// Override system timezone to prevent Asia/Calcutta issues
 		System.setProperty("user.timezone", "UTC");
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-		
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
