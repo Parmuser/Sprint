@@ -1,0 +1,216 @@
+version: '3.8'
+
+services:
+  # Zookeeper for Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    hostname: zookeeper
+    container_name: zomato-zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+      - zookeeper-data:/var/lib/zookeeper/data
+      - zookeeper-logs:/var/lib/zookeeper/log
+
+  # Kafka
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    hostname: kafka
+    container_name: zomato-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_METRIC_REPORTERS: io.confluent.metrics.reporter.ConfluentMetricsReporter
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: kafka:29092
+      CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
+      CONFLUENT_METRICS_ENABLE: 'true'
+      CONFLUENT_SUPPORT_CUSTOMER_ID: anonymous
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+
+  # PostgreSQL for User Service
+  user-postgres:
+    image: postgres:15
+    container_name: zomato-user-postgres
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      TZ: UTC
+    volumes:
+      - user-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # PostgreSQL for Restaurant Service
+  restaurant-postgres:
+    image: postgres:15
+    container_name: zomato-restaurant-postgres
+    environment:
+      POSTGRES_DB: restaurant_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      TZ: UTC
+    volumes:
+      - restaurant-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  # PostgreSQL for Order Service
+  order-postgres:
+    image: postgres:15
+    container_name: zomato-order-postgres
+    environment:
+      POSTGRES_DB: order_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      TZ: UTC
+    volumes:
+      - order-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  # PostgreSQL for Payment Service
+  payment-postgres:
+    image: postgres:15
+    container_name: zomato-payment-postgres
+    environment:
+      POSTGRES_DB: payment_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      TZ: UTC
+    volumes:
+      - payment-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+
+  # Eureka Server for Service Discovery
+  eureka-server:
+    image: springcloud/eureka
+    container_name: zomato-eureka-server
+    ports:
+      - "8761:8761"
+    environment:
+      EUREKA_CLIENT_REGISTER_WITH_EUREKA: 'false'
+      EUREKA_CLIENT_FETCH_REGISTRY: 'false'
+
+  # Kafka UI for monitoring
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: zomato-kafka-ui
+    depends_on:
+      - kafka
+      - zookeeper
+    ports:
+      - "8090:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: zomato
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+
+  # Redis for Caching
+  redis:
+    image: redis:7-alpine
+    container_name: zomato-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+
+  # SonarQube for Code Quality
+  sonarqube:
+    image: sonarqube:community
+    container_name: zomato-sonarqube
+    depends_on:
+      - sonar-postgres
+    ports:
+      - "9000:9000"
+    environment:
+      SONAR_JDBC_URL: jdbc:postgresql://sonar-postgres:5432/sonar
+      SONAR_JDBC_USERNAME: sonar
+      SONAR_JDBC_PASSWORD: sonar123
+    volumes:
+      - sonarqube-data:/opt/sonarqube/data
+      - sonarqube-extensions:/opt/sonarqube/extensions
+      - sonarqube-logs:/opt/sonarqube/logs
+
+  # PostgreSQL for SonarQube
+  sonar-postgres:
+    image: postgres:15
+    container_name: zomato-sonar-postgres
+    environment:
+      POSTGRES_DB: sonar
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar123
+      TZ: UTC
+    volumes:
+      - sonar-postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5436:5432"
+
+  # ELK Stack for Log Aggregation
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: zomato-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    container_name: zomato-logstash
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5044:5044"
+    volumes:
+      - ./elk/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logs:/usr/share/logstash/logs
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: zomato-kibana
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+
+volumes:
+  zookeeper-data:
+  zookeeper-logs:
+  kafka-data:
+  user-postgres-data:
+  restaurant-postgres-data:
+  order-postgres-data:
+  payment-postgres-data:
+  redis-data:
+  sonarqube-data:
+  sonarqube-extensions:
+  sonarqube-logs:
+  sonar-postgres-data:
+  elasticsearch-data:
+
+networks:
+  default:
+    name: zomato-network

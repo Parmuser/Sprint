@@ -1,4 +1,4 @@
-package com.example.user;
+package com.zomato.restaurant;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,14 +9,14 @@ import java.util.TimeZone;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableKafka
-public class DemoApplication {
+public class RestaurantServiceApplication {
 
 	public static void main(String[] args) {
-		// Override system timezone to prevent Asia/Calcutta issues
+		// Override system timezone to prevent timezone issues
 		System.setProperty("user.timezone", "UTC");
 		TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
 		
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(RestaurantServiceApplication.class, args);
 	}
 
 }

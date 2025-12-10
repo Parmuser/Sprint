@@ -10,6 +10,9 @@ import com.example.user.repository.UserRepository;
 import com.example.user.service.UserService;
 import com.example.user.util.UserMapper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,8 @@ import java.util.stream.Collectors;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
+    
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -36,24 +41,42 @@ public class UserServiceImpl implements UserService {
     
     @Override
     public UserDTO createUser(UserCreateRequest request) {
-        // Check if username already exists
-        if (userRepository.existsByUsername(request.getUsername())) {
-            throw new UserAlreadyExistsException("username", request.getUsername());
+        MDC.put("operation", "createUser");
+        MDC.put("username", request.getUsername());
+        
+        logger.info("Creating user with username: {} and email: {}", request.getUsername(), request.getEmail());
+        
+        try {
+            // Check if username already exists
+            if (userRepository.existsByUsername(request.getUsername())) {
+                logger.warn("Attempt to create user with existing username: {}", request.getUsername());
+                throw new UserAlreadyExistsException("username", request.getUsername());
+            }
+            
+            // Check if email already exists
+            if (userRepository.existsByEmail(request.getEmail())) {
+                logger.warn("Attempt to create user with existing email: {}", request.getEmail());
+                throw new UserAlreadyExistsException("email", request.getEmail());
+            }
+            
+            // Create new user
+            User user = new User();
+            user.setUsername(request.getUsername());
+            user.setEmail(request.getEmail());
+            user.setPassword(passwordEncoder.encode(request.getPassword()));
+            
+            logger.debug("Saving user to database: {}", request.getUsername());
+            User savedUser = userRepository.save(user);
+            
+            logger.info("Successfully created user with ID: {} and username: {}", savedUser.getId(), savedUser.getUsername());
+            return userMapper.toDTO(savedUser);
+            
+        } catch (Exception e) {
+            logger.error("Error creating user with username: {} - {}", request.getUsername(), e.getMessage(), e);
+            throw e;
+        } finally {
+            MDC.clear();
         }
-        
-        // Check if email already exists
-        if (userRepository.existsByEmail(request.getEmail())) {
-            throw new UserAlreadyExistsException("email", request.getEmail());
-        }
-        
-        // Create new user
-        User user = new User();
-        user.setUsername(request.getUsername());
-        user.setEmail(request.getEmail());
-        user.setPassword(passwordEncoder.encode(request.getPassword()));
-        
-        User savedUser = userRepository.save(user);
-        return userMapper.toDTO(savedUser);
     }
     
     @Override
