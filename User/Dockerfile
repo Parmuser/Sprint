@@ -5,11 +5,11 @@ FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
 # Leverage Docker layer caching for dependencies
-COPY pom.xml .
+COPY User/pom.xml ./pom.xml
 RUN --mount=type=cache,target=/root/.m2 mvn -B -q -e -DskipTests dependency:go-offline
 
 # Copy source and build
-COPY src ./src
+COPY User/src ./src
 RUN --mount=type=cache,target=/root/.m2 mvn -B -q -e -DskipTests package
 
 # Identify the built jar
