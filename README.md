@@ -1,20 +1,20 @@
 # Zomato Clone - Microservices Architecture
 
-A food delivery application built with Spring Boot microservices, Kafka messaging, and service discovery.
+A comprehensive food delivery application built with Spring Boot microservices, React/Angular frontends, and complete Docker containerization.
 
 ## 🏗️ Architecture Overview
 
-This application follows a microservices architecture pattern with the following services:
+This application follows a modern microservices architecture pattern with full containerization support.
 
 ### Core Services
 1. **User Service** (Port: 8080) - User management and authentication
 2. **Restaurant Service** (Port: 8081) - Restaurant information and management
-3. **Menu Service** (Port: 8082) - Menu items and categories
-4. **Order Service** (Port: 8083) - Order processing and management
-5. **Payment Service** (Port: 8084) - Payment processing
-6. **Notification Service** (Port: 8085) - Email/SMS notifications
-7. **Delivery Service** (Port: 8086) - Delivery tracking
-8. **API Gateway** (Port: 8000) - Single entry point for clients
+3. **Order Service** (Port: 8082) - Order processing and management
+4. **Notification Service** (Port: 8083) - Real-time notifications via WebSocket
+
+### Frontend Applications
+- **React Frontend** (Port: 3000) - Modern React-based web interface
+- **Angular Frontend** (Port: 4200) - Angular-based web application
 
 ### Infrastructure Services
 - **Eureka Server** (Port: 8761) - Service discovery and registration
@@ -249,6 +249,30 @@ For production deployment, consider:
 - Network segmentation
 - Secrets management
 
+## 🚀 Quick Start
+
+### Docker Setup (Recommended)
+```bash
+# Windows
+.\start-full-stack.bat
+
+# Linux/Mac
+./start-full-stack.sh
+
+# Manual
+docker-compose up -d
+```
+
+### Access Points
+- **React Frontend**: http://localhost:3000
+- **Angular Frontend**: http://localhost:4200
+- **Eureka Dashboard**: http://localhost:8761
+- **Kafka UI**: http://localhost:8090
+- **SonarQube**: http://localhost:9000
+- **Kibana**: http://localhost:5601
+
+For detailed Docker setup instructions, see [DOCKER_SETUP.md](DOCKER_SETUP.md).
+
 ---
 
-**Note**: This is a development setup. For production, additional considerations like monitoring, logging aggregation, security hardening, and deployment automation are recommended.
+**Note**: This project includes comprehensive Docker containerization with monitoring, logging, and quality tools for both development and production readiness.

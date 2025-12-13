@@ -14,6 +14,8 @@ services:
     volumes:
       - zookeeper-data:/var/lib/zookeeper/data
       - zookeeper-logs:/var/lib/zookeeper/log
+    networks:
+      - zomato-network
 
   # Kafka
   kafka:
@@ -40,6 +42,8 @@ services:
       CONFLUENT_SUPPORT_CUSTOMER_ID: anonymous
     volumes:
       - kafka-data:/var/lib/kafka/data
+    networks:
+      - zomato-network
 
   # PostgreSQL for User Service
   user-postgres:
@@ -54,6 +58,8 @@ services:
       - user-postgres-data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - zomato-network
 
   # PostgreSQL for Restaurant Service
   restaurant-postgres:
@@ -68,6 +74,8 @@ services:
       - restaurant-postgres-data:/var/lib/postgresql/data
     ports:
       - "5433:5432"
+    networks:
+      - zomato-network
 
   # PostgreSQL for Order Service
   order-postgres:
@@ -82,6 +90,8 @@ services:
       - order-postgres-data:/var/lib/postgresql/data
     ports:
       - "5434:5432"
+    networks:
+      - zomato-network
 
   # PostgreSQL for Payment Service
   payment-postgres:
@@ -96,16 +106,181 @@ services:
       - payment-postgres-data:/var/lib/postgresql/data
     ports:
       - "5435:5432"
+    networks:
+      - zomato-network
 
   # Eureka Server for Service Discovery
   eureka-server:
-    image: springcloud/eureka
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
     container_name: zomato-eureka-server
     ports:
       - "8761:8761"
     environment:
-      EUREKA_CLIENT_REGISTER_WITH_EUREKA: 'false'
-      EUREKA_CLIENT_FETCH_REGISTRY: 'false'
+      SPRING_PROFILES_ACTIVE: docker
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - zomato-network
+
+  # User Service
+  user-service:
+    build:
+      context: ./User
+      dockerfile: Dockerfile
+    container_name: zomato-user-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user-postgres:5432/mydb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      user-postgres:
+        condition: service_started
+      kafka:
+        condition: service_started
+      eureka-server:
+        condition: service_healthy
+    networks:
+      - zomato-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Restaurant Service
+  restaurant-service:
+    build:
+      context: ./restaurant-service
+      dockerfile: Dockerfile
+    container_name: zomato-restaurant-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://restaurant-postgres:5432/restaurant_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      restaurant-postgres:
+        condition: service_started
+      kafka:
+        condition: service_started
+      eureka-server:
+        condition: service_healthy
+    networks:
+      - zomato-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Order Service
+  order-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    container_name: zomato-order-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://order-postgres:5432/order_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: secret
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      order-postgres:
+        condition: service_started
+      kafka:
+        condition: service_started
+      eureka-server:
+        condition: service_healthy
+    networks:
+      - zomato-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Notification Service
+  notification-service:
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile
+    container_name: zomato-notification-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE: http://eureka-server:8761/eureka/
+    depends_on:
+      kafka:
+        condition: service_started
+      eureka-server:
+        condition: service_healthy
+    networks:
+      - zomato-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8083/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # Frontend React Application
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: zomato-frontend-react
+    ports:
+      - "3000:80"
+    depends_on:
+      user-service:
+        condition: service_healthy
+      restaurant-service:
+        condition: service_healthy
+      order-service:
+        condition: service_healthy
+      notification-service:
+        condition: service_healthy
+    networks:
+      - zomato-network
+
+  # Frontend Angular Application
+  frontend-angular:
+    build:
+      context: ./frontend-angular
+      dockerfile: Dockerfile
+    container_name: zomato-frontend-angular
+    ports:
+      - "4200:80"
+    depends_on:
+      user-service:
+        condition: service_healthy
+      restaurant-service:
+        condition: service_healthy
+      order-service:
+        condition: service_healthy
+      notification-service:
+        condition: service_healthy
+    networks:
+      - zomato-network
 
   # Kafka UI for monitoring
   kafka-ui:
@@ -120,6 +295,8 @@ services:
       KAFKA_CLUSTERS_0_NAME: zomato
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    networks:
+      - zomato-network
 
   # Redis for Caching
   redis:
@@ -130,6 +307,8 @@ services:
     volumes:
       - redis-data:/data
     command: redis-server --appendonly yes
+    networks:
+      - zomato-network
 
   # SonarQube for Code Quality
   sonarqube:
@@ -147,6 +326,8 @@ services:
       - sonarqube-data:/opt/sonarqube/data
       - sonarqube-extensions:/opt/sonarqube/extensions
       - sonarqube-logs:/opt/sonarqube/logs
+    networks:
+      - zomato-network
 
   # PostgreSQL for SonarQube
   sonar-postgres:
@@ -161,6 +342,8 @@ services:
       - sonar-postgres-data:/var/lib/postgresql/data
     ports:
       - "5436:5432"
+    networks:
+      - zomato-network
 
   # ELK Stack for Log Aggregation
   elasticsearch:
@@ -174,6 +357,8 @@ services:
       - "9200:9200"
     volumes:
       - elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - zomato-network
 
   logstash:
     image: docker.elastic.co/logstash/logstash:8.11.0
@@ -185,6 +370,8 @@ services:
     volumes:
       - ./elk/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
       - ./logs:/usr/share/logstash/logs
+    networks:
+      - zomato-network
 
   kibana:
     image: docker.elastic.co/kibana/kibana:8.11.0
@@ -195,6 +382,8 @@ services:
       - "5601:5601"
     environment:
       ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    networks:
+      - zomato-network
 
 volumes:
   zookeeper-data:
@@ -212,5 +401,5 @@ volumes:
   elasticsearch-data:
 
 networks:
-  default:
-    name: zomato-network
+  zomato-network:
+    driver: bridge
