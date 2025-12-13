@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.sidenav {
+  width: 240px;
+  
+  .mat-toolbar {
+    background: inherit;
+    color: inherit;
+  }
+}
+
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  .toolbar-title {
+    margin-left: 16px;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.main-content {
+  padding: 24px;
+  min-height: calc(100vh - 64px); // Account for toolbar height
+}
+
+.active-link {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}

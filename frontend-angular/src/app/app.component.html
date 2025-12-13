@@ -1,0 +1,64 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidenav -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="'navigation'"
+               [mode]="'side'"
+               [opened]="sidenavOpened">
+    <mat-toolbar>Navigation</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span matListItemTitle>Home</span>
+      </a>
+      <a mat-list-item routerLink="/users" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>people</mat-icon>
+        <span matListItemTitle>Users</span>
+      </a>
+      <a mat-list-item routerLink="/restaurants" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>restaurant</mat-icon>
+        <span matListItemTitle>Restaurants</span>
+      </a>
+      <a mat-list-item routerLink="/orders" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>shopping_cart</mat-icon>
+        <span matListItemTitle>Orders</span>
+      </a>
+      <a mat-list-item routerLink="/live-tracking" routerLinkActive="active-link">
+        <mat-icon matListItemIcon>track_changes</mat-icon>
+        <span matListItemTitle>Live Tracking</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <!-- Toolbar -->
+    <mat-toolbar color="primary" class="toolbar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="toggleSidenav()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="toolbar-title">{{ title }}</span>
+      <span class="toolbar-spacer"></span>
+      
+      <!-- Notifications -->
+      <button mat-icon-button [matBadge]="(notifications$ | async)?.length || 0" 
+              matBadgeColor="warn" 
+              (click)="clearNotifications()"
+              aria-label="Clear notifications">
+        <mat-icon>notifications</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <!-- Router outlet -->
+    <div class="main-content">
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
