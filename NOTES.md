@@ -36,27 +36,27 @@ PS C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service> mvn sprin
 
  :: Spring Boot ::               (v3.4.12)
 
-2025-12-19 21:18:16.301 [main] INFO  [c.z.order.OrderServiceApplication] - Starting OrderServiceApplication using Java 18.0.2.1 with PID 9692 (C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service\target\classes started by paramesh y in C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service)
-2025-12-19 21:18:16.362 [main] DEBUG [c.z.order.OrderServiceApplication] - Running with Spring Boot v3.4.12, 
+2025-12-19 22:40:32.645 [main] INFO  [c.z.order.OrderServiceApplication] - Starting OrderServiceApplication using Java 18.0.2.1 with PID 106140 (C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service\target\classes started by paramesh y in C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service)        
+2025-12-19 22:40:32.666 [main] DEBUG [c.z.order.OrderServiceApplication] - Running with Spring Boot v3.4.12, 
 Spring v6.2.14
-2025-12-19 21:18:16.364 [main] INFO  [c.z.order.OrderServiceApplication] - No active profile set, falling back to 1 default profile: "default"
-2025-12-19 21:18:19.601 [main] INFO  [o.s.d.r.c.RepositoryConfigurationDelegate] - Bootstrapping Spring Data 
+2025-12-19 22:40:32.670 [main] INFO  [c.z.order.OrderServiceApplication] - No active profile set, falling back to 1 default profile: "default"
+2025-12-19 22:40:34.706 [main] INFO  [o.s.d.r.c.RepositoryConfigurationDelegate] - Bootstrapping Spring Data 
 JPA repositories in DEFAULT mode.
-2025-12-19 21:18:19.681 [main] INFO  [o.s.d.r.c.RepositoryConfigurationDelegate] - Finished Spring Data repository scanning in 58 ms. Found 0 JPA repository interfaces.
-2025-12-19 21:18:21.553 [main] INFO  [o.s.cloud.context.scope.GenericScope] - BeanFactory id=4f2c2978-872a-341e-95ea-c575dfd7ec3a
-2025-12-19 21:18:24.851 [main] INFO  [o.s.b.w.e.tomcat.TomcatWebServer] - Tomcat initialized with port 8082 (http)
-2025-12-19 21:18:24.921 [main] INFO  [o.a.catalina.core.StandardService] - Starting service [Tomcat]
-2025-12-19 21:18:24.923 [main] INFO  [o.a.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.49]
-2025-12-19 21:18:25.901 [main] INFO  [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
-2025-12-19 21:18:25.912 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 9445 ms
-2025-12-19 21:18:27.380 [main] INFO  [o.h.jpa.internal.util.LogHelper] - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-19 21:18:28.439 [main] INFO  [org.hibernate.Version] - HHH000412: Hibernate ORM core version 6.6.36.Final
-2025-12-19 21:18:28.990 [main] INFO  [o.h.c.i.RegionFactoryInitiator] - HHH000026: Second-level cache disabled
-2025-12-19 21:18:31.736 [main] INFO  [o.s.o.j.p.SpringPersistenceUnitInfo] - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-19 21:18:32.002 [main] INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
-2025-12-19 21:18:34.110 [main] WARN  [o.h.e.jdbc.spi.SqlExceptionHelper] - SQL Error: 0, SQLState: 22023
-2025-12-19 21:18:34.111 [main] ERROR [o.h.e.jdbc.spi.SqlExceptionHelper] - FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"
-2025-12-19 21:18:34.113 [main] WARN  [o.h.e.j.e.i.JdbcEnvironmentInitiator] - HHH000342: Could not obtain connection to query metadata
+2025-12-19 22:40:34.748 [main] INFO  [o.s.d.r.c.RepositoryConfigurationDelegate] - Finished Spring Data repository scanning in 28 ms. Found 0 JPA repository interfaces.
+2025-12-19 22:40:35.202 [main] INFO  [o.s.cloud.context.scope.GenericScope] - BeanFactory id=4f2c2978-872a-341e-95ea-c575dfd7ec3a
+2025-12-19 22:40:36.233 [main] INFO  [o.s.b.w.e.tomcat.TomcatWebServer] - Tomcat initialized with port 8082 (http)
+2025-12-19 22:40:36.257 [main] INFO  [o.a.catalina.core.StandardService] - Starting service [Tomcat]
+2025-12-19 22:40:36.260 [main] INFO  [o.a.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.49]
+2025-12-19 22:40:36.450 [main] INFO  [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2025-12-19 22:40:36.450 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 3671 ms
+2025-12-19 22:40:37.044 [main] INFO  [o.h.jpa.internal.util.LogHelper] - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-12-19 22:40:37.146 [main] INFO  [org.hibernate.Version] - HHH000412: Hibernate ORM core version 6.6.36.Final
+2025-12-19 22:40:37.215 [main] INFO  [o.h.c.i.RegionFactoryInitiator] - HHH000026: Second-level cache disabled
+2025-12-19 22:40:37.745 [main] INFO  [o.s.o.j.p.SpringPersistenceUnitInfo] - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-12-19 22:40:37.808 [main] INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2025-12-19 22:40:40.975 [main] WARN  [o.h.e.jdbc.spi.SqlExceptionHelper] - SQL Error: 0, SQLState: 22023
+2025-12-19 22:40:40.977 [main] ERROR [o.h.e.jdbc.spi.SqlExceptionHelper] - FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"
+2025-12-19 22:40:40.982 [main] WARN  [o.h.e.j.e.i.JdbcEnvironmentInitiator] - HHH000342: Could not obtain connection to query metadata
 org.hibernate.exception.DataException: unable to obtain isolated JDBC connection [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
         at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:103)
         at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
@@ -118,8 +118,8 @@ Caused by: org.postgresql.util.PSQLException: FATAL: invalid value for parameter
         at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485)
         at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
         ... 35 common frames omitted
-2025-12-19 21:18:34.668 [main] WARN  [org.hibernate.orm.deprecation] - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-19 21:18:34.761 [main] INFO  [o.hibernate.orm.connections.pooling] - HHH10001005: Database info:
+2025-12-19 22:40:41.117 [main] WARN  [org.hibernate.orm.deprecation] - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-12-19 22:40:41.155 [main] INFO  [o.hibernate.orm.connections.pooling] - HHH10001005: Database info:
         Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
         Database driver: undefined/unknown
         Database version: 12.0
@@ -127,314 +127,20 @@ Caused by: org.postgresql.util.PSQLException: FATAL: invalid value for parameter
         Isolation level: undefined/unknown
         Minimum pool size: undefined/unknown
         Maximum pool size: undefined/unknown
-2025-12-19 21:18:40.002 [main] INFO  [o.h.e.t.j.p.i.JtaPlatformInitiator] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-19 21:18:40.119 [main] INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
-2025-12-19 21:18:41.191 [main] WARN  [o.h.e.jdbc.spi.SqlExceptionHelper] - SQL Error: 0, SQLState: 22023
-2025-12-19 21:18:41.194 [main] ERROR [o.h.e.jdbc.spi.SqlExceptionHelper] - FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"
-2025-12-19 21:18:41.228 [main] ERROR [o.s.o.j.LocalContainerEntityManagerFactoryBean] - Failed to initialize 
+2025-12-19 22:40:43.194 [main] INFO  [o.h.e.t.j.p.i.JtaPlatformInitiator] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-12-19 22:40:43.246 [main] INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2025-12-19 22:40:44.491 [main] WARN  [o.h.e.jdbc.spi.SqlExceptionHelper] - SQL Error: 0, SQLState: 22023
+2025-12-19 22:40:44.494 [main] ERROR [o.h.e.jdbc.spi.SqlExceptionHelper] - FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"
+2025-12-19 22:40:44.515 [main] ERROR [o.s.o.j.LocalContainerEntityManagerFactoryBean] - Failed to initialize 
 JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-2025-12-19 21:18:41.237 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource 
+2025-12-19 22:40:44.523 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource 
 [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] 
 Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-2025-12-19 21:18:41.260 [main] INFO  [o.a.catalina.core.StandardService] - Stopping service [Tomcat]
-2025-12-19 21:18:41.354 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLogger] - 
+2025-12-19 22:40:44.541 [main] INFO  [o.a.catalina.core.StandardService] - Stopping service [Tomcat]
+2025-12-19 22:40:44.616 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLogger] - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-12-19 21:18:41.420 [main] ERROR [o.s.boot.SpringApplication] - Application run failed
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter 
-"TimeZone": "Asia/Calcutta"] [n/a]
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
-        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:973)
-        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
-        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-        at com.zomato.order.OrderServiceApplication.main(OrderServiceApplication.java:12)
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431)
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
-        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
-        ... 15 common frames omitted
-Caused by: org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-        at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:103)
-        at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
-        at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:74)
-        at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:39)
-        at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
-        at org.hibernate.tool.schema.extract.spi.ExtractionContext.getQueryResults(ExtractionContext.java:43)        at org.hibernate.tool.schema.extract.internal.SequenceInformationExtractorLegacyImpl.extractMetadata(SequenceInformationExtractorLegacyImpl.java:39)
-        at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.initializeSequences(DatabaseInformationImpl.java:66)
-        at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.<init>(DatabaseInformationImpl.java:60)
-        at org.hibernate.tool.schema.internal.Helper.buildDatabaseInformation(Helper.java:185)
-        at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:93)
-        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280)
-        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144)
-        at java.base/java.util.HashMap.forEach(HashMap.java:1421)
-        at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141)
-        at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37)
-        at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35)
-        at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324)
-        at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463)   
-        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517)
-        at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
-        ... 19 common frames omitted
-Caused by: org.postgresql.util.PSQLException: FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta" 
-        at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2736)        
-        at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2861)
-        at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:178)
-        at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:344)   
-        at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
-        at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
-        at org.postgresql.Driver.makeConnection(Driver.java:448)
-        at org.postgresql.Driver.connect(Driver.java:298)
-        at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
-        at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
-        at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
-        at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
-        at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
-        at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
-        at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
-        at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
-cess.obtainConnection(JdbcEnvironmentInitiator.java:485)
-        at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:46)
-        ... 39 common frames omitted
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  41.059 s
-[INFO] Finished at: 2025-12-19T21:18:41+05:30
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.4.12:run (default-cli) on 
-project order-service: Process terminated with exit code: 1 -> [Help 1]
-[ERROR]
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR]
-[ERROR] For more information about the errors and possible solutions, please read the following articles:    
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-PS C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service> mvn spring-boot:run
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ----------------------< com.zomato:order-service >----------------------
-[INFO] Building order-service 0.0.1-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] >>> spring-boot:3.4.12:run (default-cli) > test-compile @ order-service >>>
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ order-service ---
-[INFO] Copying 1 resource from src\main\resources to target\classes
-[INFO] Copying 1 resource from src\main\resources to target\classes
-[INFO]
-[INFO] --- compiler:3.11.0:compile (default-compile) @ order-service ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO]
-[INFO] --- resources:3.3.1:testResources (default-testResources) @ order-service ---
-[INFO] skip non existing resourceDirectory C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service\src\test\resources
-[INFO]
-[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ order-service ---
-[INFO] No sources to compile
-[INFO]
-[INFO] <<< spring-boot:3.4.12:run (default-cli) < test-compile @ order-service <<<
-[INFO]
-[INFO]
-[INFO] --- spring-boot:3.4.12:run (default-cli) @ order-service ---
-Error: LinkageError occurred while loading main class com.zomato.order.OrderServiceApplication
-        java.lang.UnsupportedClassVersionError: com/zomato/order/OrderServiceApplication has been compiled by a more recent version of the Java Runtime (class file version 65.0), this version of the Java Runtime only recognizes class file versions up to 62.0
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.705 s
-[INFO] Finished at: 2025-12-19T21:32:47+05:30
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.4.12:run (default-cli) on 
-project order-service: Process terminated with exit code: 1 -> [Help 1]
-[ERROR]
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR]
-[ERROR] For more information about the errors and possible solutions, please read the following articles:    
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-PS C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service> mvn clean compile  
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ----------------------< com.zomato:order-service >----------------------
-[INFO] Building order-service 0.0.1-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- clean:3.4.1:clean (default-clean) @ order-service ---
-[INFO] Deleting C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service\target
-[INFO]
-[INFO] --- resources:3.3.1:resources (default-resources) @ order-service ---
-[INFO] Copying 1 resource from src\main\resources to target\classes
-[INFO] Copying 1 resource from src\main\resources to target\classes
-[INFO]
-[INFO] --- compiler:3.11.0:compile (default-compile) @ order-service ---
-[INFO] Changes detected - recompiling the module! :source
-[INFO] Compiling 4 source files with javac [debug release 18] to target\classes
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.403 s
-[INFO] Finished at: 2025-12-19T21:33:18+05:30
-[INFO] ------------------------------------------------------------------------
-PS C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service> mvn spring-boot:run
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ----------------------< com.zomato:order-service >----------------------
-[INFO] Building order-service 0.0.1-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] >>> spring-boot:3.4.12:run (default-cli) > test-compile @ order-service >>>
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ order-service ---
-[INFO] Copying 1 resource from src\main\resources to target\classes
-[INFO] Copying 1 resource from src\main\resources to target\classes
-[INFO]
-[INFO] --- compiler:3.11.0:compile (default-compile) @ order-service ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO]
-[INFO] --- resources:3.3.1:testResources (default-testResources) @ order-service ---
-[INFO] skip non existing resourceDirectory C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service\src\test\resources
-[INFO]
-[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ order-service ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] <<< spring-boot:3.4.12:run (default-cli) < test-compile @ order-service <<<
-[INFO]
-[INFO]
-[INFO] --- spring-boot:3.4.12:run (default-cli) @ order-service ---
-[INFO] Attaching agents: []
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::               (v3.4.12)
-
-2025-12-19 21:34:36.686 [main] INFO  [c.z.order.OrderServiceApplication] - Starting OrderServiceApplication using Java 18.0.2.1 with PID 89436 (C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service\target\classes started by paramesh y in C:\Users\paramesh y\OneDrive\Documents\GitHub\Sprint\order-service)
-2025-12-19 21:34:36.735 [main] DEBUG [c.z.order.OrderServiceApplication] - Running with Spring Boot v3.4.12, 
-Spring v6.2.14
-2025-12-19 21:34:36.739 [main] INFO  [c.z.order.OrderServiceApplication] - No active profile set, falling back to 1 default profile: "default"
-2025-12-19 21:34:40.558 [main] INFO  [o.s.d.r.c.RepositoryConfigurationDelegate] - Bootstrapping Spring Data 
-JPA repositories in DEFAULT mode.
-2025-12-19 21:34:40.604 [main] INFO  [o.s.d.r.c.RepositoryConfigurationDelegate] - Finished Spring Data repository scanning in 29 ms. Found 0 JPA repository interfaces.
-2025-12-19 21:34:41.219 [main] INFO  [o.s.cloud.context.scope.GenericScope] - BeanFactory id=4f2c2978-872a-341e-95ea-c575dfd7ec3a
-2025-12-19 21:34:43.171 [main] INFO  [o.s.b.w.e.tomcat.TomcatWebServer] - Tomcat initialized with port 8082 (http)
-2025-12-19 21:34:43.211 [main] INFO  [o.a.catalina.core.StandardService] - Starting service [Tomcat]
-2025-12-19 21:34:43.212 [main] INFO  [o.a.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/10.1.49]
-2025-12-19 21:34:43.816 [main] INFO  [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
-2025-12-19 21:34:43.818 [main] INFO  [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 6977 ms
-2025-12-19 21:34:44.884 [main] INFO  [o.h.jpa.internal.util.LogHelper] - HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-12-19 21:34:45.558 [main] INFO  [org.hibernate.Version] - HHH000412: Hibernate ORM core version 6.6.36.Final
-2025-12-19 21:34:45.885 [main] INFO  [o.h.c.i.RegionFactoryInitiator] - HHH000026: Second-level cache disabled
-2025-12-19 21:34:49.384 [main] INFO  [o.s.o.j.p.SpringPersistenceUnitInfo] - No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-19 21:34:49.838 [main] INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
-2025-12-19 21:34:51.589 [main] WARN  [o.h.e.jdbc.spi.SqlExceptionHelper] - SQL Error: 0, SQLState: 22023
-2025-12-19 21:34:51.593 [main] ERROR [o.h.e.jdbc.spi.SqlExceptionHelper] - FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"
-2025-12-19 21:34:51.599 [main] WARN  [o.h.e.j.e.i.JdbcEnvironmentInitiator] - HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.DataException: unable to obtain isolated JDBC connection [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-        at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:103)
-        at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
-        at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94)
-        at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:116)
-        at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:334)
-        at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:129)
-        at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:81)
-        at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130)
-        at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
-        at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238)
-        at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215)
-        at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
-        at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:226)
-        at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:194)
-        at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:171)
-        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1442)
-        at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1513)
-        at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
-        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390)
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419)
-        at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400)
-        at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1873)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1822)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607)
-        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339)
-        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:373)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337)
-        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207)
-        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:973)
-        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627)
-        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
-        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
-        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
-        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
-        at com.zomato.order.OrderServiceApplication.main(OrderServiceApplication.java:12)
-Caused by: org.postgresql.util.PSQLException: FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta" 
-        at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2736)        
-        at org.postgresql.core.v3.QueryExecutorImpl.readStartupMessages(QueryExecutorImpl.java:2861)
-        at org.postgresql.core.v3.QueryExecutorImpl.<init>(QueryExecutorImpl.java:178)
-        at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:344)   
-        at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:57)
-        at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:279)
-        at org.postgresql.Driver.makeConnection(Driver.java:448)
-        at org.postgresql.Driver.connect(Driver.java:298)
-        at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
-        at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
-        at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
-        at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
-        at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550)
-        at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98)
-        at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
-        at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:126)
-        at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:485)
-        at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61)
-        ... 35 common frames omitted
-2025-12-19 21:34:51.967 [main] WARN  [org.hibernate.orm.deprecation] - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-19 21:34:52.084 [main] INFO  [o.hibernate.orm.connections.pooling] - HHH10001005: Database info:
-        Database JDBC URL [Connecting through datasource 'HikariDataSource (null)']
-        Database driver: undefined/unknown
-        Database version: 12.0
-        Autocommit mode: undefined/unknown
-        Isolation level: undefined/unknown
-        Minimum pool size: undefined/unknown
-        Maximum pool size: undefined/unknown
-2025-12-19 21:34:55.507 [main] INFO  [o.h.e.t.j.p.i.JtaPlatformInitiator] - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-12-19 21:34:55.597 [main] INFO  [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
-2025-12-19 21:34:56.712 [main] WARN  [o.h.e.jdbc.spi.SqlExceptionHelper] - SQL Error: 0, SQLState: 22023
-2025-12-19 21:34:56.713 [main] ERROR [o.h.e.jdbc.spi.SqlExceptionHelper] - FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"
-2025-12-19 21:34:56.733 [main] ERROR [o.s.o.j.LocalContainerEntityManagerFactoryBean] - Failed to initialize 
-JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-2025-12-19 21:34:56.741 [main] WARN  [o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource 
-[org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] 
-Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter "TimeZone": "Asia/Calcutta"] [n/a]
-2025-12-19 21:34:56.752 [main] INFO  [o.a.catalina.core.StandardService] - Stopping service [Tomcat]
-2025-12-19 21:34:56.825 [main] INFO  [o.s.b.a.l.ConditionEvaluationReportLogger] - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2025-12-19 21:34:56.862 [main] ERROR [o.s.boot.SpringApplication] - Application run failed
+2025-12-19 22:40:44.654 [main] ERROR [o.s.boot.SpringApplication] - Application run failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.DataException: Unable to open JDBC Connection for DDL execution [FATAL: invalid value for parameter 
 "TimeZone": "Asia/Calcutta"] [n/a]
         at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1826)
@@ -509,8 +215,8 @@ Caused by: org.postgresql.util.PSQLException: FATAL: invalid value for parameter
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  39.161 s
-[INFO] Finished at: 2025-12-19T21:34:56+05:30
+[INFO] Total time:  22.248 s
+[INFO] Finished at: 2025-12-19T17:10:44Z
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:3.4.12:run (default-cli) on 
 project order-service: Process terminated with exit code: 1 -> [Help 1]
