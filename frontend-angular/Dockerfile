@@ -7,23 +7,23 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production
+# Install all dependencies (including devDependencies for build)
+RUN npm ci
 
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build the application without SSR for static nginx deployment
+RUN npm run build -- --configuration=production --no-prerender --no-ssr
 
 # Production stage
 FROM nginx:alpine
 
-# Copy built application from build stage
-COPY --from=build /app/dist/frontend-angular /usr/share/nginx/html
+# Copy built application from build stage (browser folder for Angular 17+)
+COPY --from=build /app/dist/frontend-angular/browser /usr/share/nginx/html
 
-# Copy nginx configuration (if exists)
-COPY nginx.conf /etc/nginx/nginx.conf 2>/dev/null || true
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
 EXPOSE 80
